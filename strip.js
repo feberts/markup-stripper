@@ -1,4 +1,5 @@
 var generic_replacement = 'Kuchen';
+// var generic_replacement = 'cake'; // english
 
 const textarea = document.getElementsByName('textarea')[0];
 var text;
