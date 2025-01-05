@@ -51,6 +51,7 @@ function stripLaTeX()
         // replace surrounding macro and content:
         replace(/\\ic{[^{}]+}/g, generic_replacement); // \ic{} \ic[]{}
         replace(/\\ref{[^{}]+}/g, '42'); // \ref{}
+        replace(/\\py{[^{}]+}/g, generic_replacement); // \py{}
 
         // various replacements:
         replace('\\LaTeX', generic_replacement);
