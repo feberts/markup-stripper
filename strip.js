@@ -1,13 +1,30 @@
-var generic_replacement = 'Kuchen';
-// var generic_replacement = 'cake'; // english
+const generic_replacement_de = 'Kuchen';
+const generic_replacement_en = 'cake';
+var generic_replacement = generic_replacement_de;
+const button_lang = document.getElementById('language');
 
-const textarea = document.getElementsByName('textarea')[0];
+function changeLanguage()
+{
+    if(generic_replacement == generic_replacement_de)
+    {
+        generic_replacement = generic_replacement_en;
+        button_lang.innerHTML = 'English &middot; German'
+    }
+    else
+    {
+        generic_replacement = generic_replacement_de;
+        button_lang.innerHTML = 'German &middot; English'
+    }
+}
+
 var text;
 
 function replace(pattern, replacement)
 {
     text = text.replaceAll(pattern, replacement);
 }
+
+const textarea = document.getElementById('textarea');
 
 function stripLaTeX()
 {

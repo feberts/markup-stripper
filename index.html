@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="favicon.svg">
-    <title>LaTeX Stripper</title>
+    <title>Markup Stripper</title>
   </head>
   <body>
-    <div><textarea name="textarea" placeholder="Paste latex/markdown here"></textarea></div>
-    <div id="menu">
+    <div><textarea id="textarea" placeholder="Paste latex/markdown here"></textarea></div>
+    <div class="menu">
         <button type="button" onclick="stripLaTeX()">Strip LaTeX</button>
         <button type="button" onclick="stripMarkdown()">Strip Markdown</button>
+    </div>
+    <div class="menu">
+        <button type="button" onclick="changeLanguage()" id="language">German &middot; English</button>
     </div>
     <script src="strip.js"></script>
   </body>

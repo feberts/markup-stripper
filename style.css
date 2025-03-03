@@ -8,7 +8,7 @@ textarea
     box-sizing: border-box;
 }
 
-#menu
+.menu
 {
     display: flex;
     justify-content: center;
