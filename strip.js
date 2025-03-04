@@ -67,8 +67,10 @@ function stripLaTeX()
 
         // replace surrounding macro and content:
         replace(/\\ic{[^{}]+}/g, generic_replacement); // \ic{} \ic[]{}
+        replace(/\\ic![^!]+!/g, generic_replacement); // \ic!! \ic[]!!
         replace(/\\ref{[^{}]+}/g, '42'); // \ref{}
         replace(/\\py{[^{}]+}/g, generic_replacement); // \py{}
+
 
         // various replacements:
         replace('\\LaTeX', generic_replacement);
@@ -116,7 +118,10 @@ abc\footnote{xyz} abc
 
 abc \ic{xyz} abc
 abc \ic[xyz]{xyz} abc
+abc \ic!xyz! abc
+abc \ic[xyz]!xyz! abc
 abc \ref{xyz} abc
+abc \py{xyz} abc
 
 abc \emph{xyz \textbf{mno} xyz} abc
 abc \textbf{xyz \emph{mno} xyz} abc
