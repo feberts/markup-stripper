@@ -8,13 +8,14 @@
     <title>Markup Stripper</title>
   </head>
   <body>
-    <div><textarea id="textarea" placeholder="Paste latex/markdown here"></textarea></div>
-    <div class="menu">
-        <button type="button" onclick="stripLaTeX()">Strip LaTeX</button>
-        <button type="button" onclick="stripMarkdown()">Strip Markdown</button>
+    <div><textarea id="textarea" placeholder="Paste latex/markdown here">Paste latex or markdown \emph{here} to remove markup elements.</textarea>
     </div>
     <div class="menu">
-        <button type="button" onclick="changeLanguage()" id="language">German &middot; English</button>
+      <button type="button" onclick="stripLaTeX()">Strip LaTeX</button>
+      <button type="button" onclick="stripMarkdown()">Strip Markdown</button>
+    </div>
+    <div class="menu">
+      <button type="button" onclick="changeLanguage()" id="language"></button>
     </div>
     <script src="strip.js"></script>
   </body>

@@ -1,6 +1,6 @@
-const generic_replacement_de = 'Kuchen';
 const generic_replacement_en = 'cake';
-var generic_replacement = generic_replacement_de;
+const generic_replacement_de = 'Kuchen';
+var generic_replacement = generic_replacement_en;
 const button_lang = document.getElementById('language');
 
 function changeLanguage()
@@ -16,6 +16,8 @@ function changeLanguage()
         button_lang.innerHTML = 'German &middot; English'
     }
 }
+
+changeLanguage();
 
 var text;
 
@@ -70,13 +72,12 @@ function stripLaTeX()
         replace(/\\ic![^!]+!/g, generic_replacement); // \ic!! \ic[]!!
         replace(/\\ref{[^{}]+}/g, '42'); // \ref{}
         replace(/\\py{[^{}]+}/g, generic_replacement); // \py{}
-
+        replace(/\\nameref{[^{}]+}/g, generic_replacement); // \nameref{}
 
         // various replacements:
         replace('\\LaTeX', generic_replacement);
         replace('\\TeX', generic_replacement);
         replace('WebAssembly', generic_replacement);
-        replace('Actions', generic_replacement);
         replace('Emscripten', generic_replacement);
         replace('GitHub-Pages', generic_replacement);
         replace('\\swift', generic_replacement);
@@ -122,6 +123,7 @@ abc \ic!xyz! abc
 abc \ic[xyz]!xyz! abc
 abc \ref{xyz} abc
 abc \py{xyz} abc
+abc \nameref{abc} abc
 
 abc \emph{xyz \textbf{mno} xyz} abc
 abc \textbf{xyz \emph{mno} xyz} abc
@@ -139,6 +141,7 @@ function stripMarkdown()
     replace(/[_*]/g, ''); // text decoration
     replace(/`([^`]+)`/g, generic_replacement); // inline code
     replace(/\[([^\]]+)\]\([^)]+\)/g, '$1'); // link
+    replace(/#+ +(.+)/g, '$1:'); // heading
 
     textarea.value = text;
 }
@@ -150,4 +153,6 @@ abc *xyz* abc _xyz_ abc
 abc **xyz** abc __xyz__ abc
 abc [xyz](https://de.wikipedia.org/) abc
 abc `xyz` abc `xyz` abc
+# abc
+## abc
 */
